@@ -1,0 +1,48 @@
+[27-Mar-2026 12:40:29 UTC] PHP Parse error:  syntax error, unexpected token "echo" in /home/q4ypdqm3m1a5/public_html/crm.esanchez.com.ar/custom/realestatecrmfields/pendientes.php on line 458
+[29-Mar-2026 12:30:25 UTC] PHP Parse error:  syntax error, unexpected token "echo" in /home/q4ypdqm3m1a5/public_html/crm.esanchez.com.ar/custom/realestatecrmfields/pendientes.php on line 458
+[17-Apr-2026 16:59:42 UTC] PHP Fatal error:  Uncaught TypeError: date(): Argument #2 ($timestamp) must be of type ?int, string given in /home/q4ypdqm3m1a5/public_html/crm.esanchez.com.ar/custom/realestatecrmfields/pendientes.php:325
+Stack trace:
+#0 /home/q4ypdqm3m1a5/public_html/crm.esanchez.com.ar/custom/realestatecrmfields/pendientes.php(325): date()
+#1 {main}
+  thrown in /home/q4ypdqm3m1a5/public_html/crm.esanchez.com.ar/custom/realestatecrmfields/pendientes.php on line 325
+[17-Apr-2026 17:03:40 UTC] PHP Fatal error:  Uncaught TypeError: date(): Argument #2 ($timestamp) must be of type ?int, string given in /home/q4ypdqm3m1a5/public_html/crm.esanchez.com.ar/custom/realestatecrmfields/pendientes.php:325
+Stack trace:
+#0 /home/q4ypdqm3m1a5/public_html/crm.esanchez.com.ar/custom/realestatecrmfields/pendientes.php(325): date()
+#1 {main}
+  thrown in /home/q4ypdqm3m1a5/public_html/crm.esanchez.com.ar/custom/realestatecrmfields/pendientes.php on line 325
+[17-Apr-2026 17:03:44 UTC] PHP Fatal error:  Uncaught TypeError: date(): Argument #2 ($timestamp) must be of type ?int, string given in /home/q4ypdqm3m1a5/public_html/crm.esanchez.com.ar/custom/realestatecrmfields/pendientes.php:325
+Stack trace:
+#0 /home/q4ypdqm3m1a5/public_html/crm.esanchez.com.ar/custom/realestatecrmfields/pendientes.php(325): date()
+#1 {main}
+  thrown in /home/q4ypdqm3m1a5/public_html/crm.esanchez.com.ar/custom/realestatecrmfields/pendientes.php on line 325
+[17-Apr-2026 17:03:45 UTC] PHP Fatal error:  Uncaught TypeError: date(): Argument #2 ($timestamp) must be of type ?int, string given in /home/q4ypdqm3m1a5/public_html/crm.esanchez.com.ar/custom/realestatecrmfields/pendientes.php:325
+Stack trace:
+#0 /home/q4ypdqm3m1a5/public_html/crm.esanchez.com.ar/custom/realestatecrmfields/pendientes.php(325): date()
+#1 {main}
+  thrown in /home/q4ypdqm3m1a5/public_html/crm.esanchez.com.ar/custom/realestatecrmfields/pendientes.php on line 325
+[17-Apr-2026 17:09:27 UTC] PHP Fatal error:  Uncaught TypeError: date(): Argument #2 ($timestamp) must be of type ?int, string given in /home/q4ypdqm3m1a5/public_html/crm.esanchez.com.ar/custom/realestatecrmfields/pendientes.php:318
+Stack trace:
+#0 /home/q4ypdqm3m1a5/public_html/crm.esanchez.com.ar/custom/realestatecrmfields/pendientes.php(318): date()
+#1 {main}
+  thrown in /home/q4ypdqm3m1a5/public_html/crm.esanchez.com.ar/custom/realestatecrmfields/pendientes.php on line 318
+[17-Apr-2026 17:09:31 UTC] PHP Fatal error:  Uncaught TypeError: date(): Argument #2 ($timestamp) must be of type ?int, string given in /home/q4ypdqm3m1a5/public_html/crm.esanchez.com.ar/custom/realestatecrmfields/pendientes.php:318
+Stack trace:
+#0 /home/q4ypdqm3m1a5/public_html/crm.esanchez.com.ar/custom/realestatecrmfields/pendientes.php(318): date()
+#1 {main}
+  thrown in /home/q4ypdqm3m1a5/public_html/crm.esanchez.com.ar/custom/realestatecrmfields/pendientes.php on line 318
+[17-Apr-2026 17:11:19 UTC] PHP Fatal error:  Uncaught TypeError: date(): Argument #2 ($timestamp) must be of type ?int, string given in /home/q4ypdqm3m1a5/public_html/crm.esanchez.com.ar/custom/realestatecrmfields/pendientes.php:318
+Stack trace:
+#0 /home/q4ypdqm3m1a5/public_html/crm.esanchez.com.ar/custom/realestatecrmfields/pendientes.php(318): date()
+#1 {main}
+  thrown in /home/q4ypdqm3m1a5/public_html/crm.esanchez.com.ar/custom/realestatecrmfields/pendientes.php on line 318
+[17-Apr-2026 17:11:34 UTC] PHP Fatal error:  Uncaught TypeError: date(): Argument #2 ($timestamp) must be of type ?int, string given in /home/q4ypdqm3m1a5/public_html/crm.esanchez.com.ar/custom/realestatecrmfields/pendientes.php:318
+Stack trace:
+#0 /home/q4ypdqm3m1a5/public_html/crm.esanchez.com.ar/custom/realestatecrmfields/pendientes.php(318): date()
+#1 {main}
+  thrown in /home/q4ypdqm3m1a5/public_html/crm.esanchez.com.ar/custom/realestatecrmfields/pendientes.php on line 318
+[17-Apr-2026 17:11:56 UTC] PHP Fatal error:  Uncaught TypeError: date(): Argument #2 ($timestamp) must be of type ?int, string given in /home/q4ypdqm3m1a5/public_html/crm.esanchez.com.ar/custom/realestatecrmfields/pendientes.php:318
+Stack trace:
+#0 /home/q4ypdqm3m1a5/public_html/crm.esanchez.com.ar/custom/realestatecrmfields/pendientes.php(318): date()
+#1 {main}
+  thrown in /home/q4ypdqm3m1a5/public_html/crm.esanchez.com.ar/custom/realestatecrmfields/pendientes.php on line 318
+[12-May-2026 12:24:06 UTC] PHP Parse error:  syntax error, unexpected token "elseif" in /home/q4ypdqm3m1a5/public_html/crm.esanchez.com.ar/custom/realestatecrmfields/actores.php on line 307

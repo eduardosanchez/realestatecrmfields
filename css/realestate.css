@@ -1,0 +1,270 @@
+/* ============================================================
+   RealEstateCrmFields - Estilos
+   ============================================================ */
+
+/* ── Tabs de filtro en lista ── */
+.realestate-filter-bar {
+    padding: 8px 0;
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 10px;
+}
+
+.realestate-tabs a.butAction,
+.realestate-tabs a.butActionDelete {
+    padding: 4px 12px;
+    border-radius: 3px;
+    font-size: 13px;
+    text-decoration: none;
+    transition: background 0.15s;
+}
+
+.realestate-subtabs {
+    margin-top: 6px;
+}
+
+.realestate-subtabs a {
+    padding: 3px 10px;
+    font-size: 12px;
+    border-radius: 3px;
+    text-decoration: none;
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    color: #555;
+    transition: background 0.15s;
+}
+
+.realestate-subtabs a.butActionSelected,
+.realestate-subtabs a:hover {
+    background: #3d6fd4;
+    color: white;
+    border-color: #3d6fd4;
+}
+
+/* ── Fila de subtipo en ficha ── */
+.realestate-subtype-row td {
+    padding: 5px 8px;
+}
+
+.realestate-subtype-row td:first-child {
+    font-weight: bold;
+    color: #555;
+}
+
+/* ── Panel de visibilidad en admin ── */
+.realestate-visibility-panel {
+    margin-top: 20px;
+}
+
+#re-visibility-table {
+    font-size: 13px;
+}
+
+#re-visibility-table th {
+    padding: 6px 8px;
+}
+
+#re-visibility-table td {
+    padding: 5px 8px;
+    vertical-align: middle;
+}
+
+#re-visibility-table input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+#re-visibility-table input[type="checkbox"]:disabled {
+    opacity: 0.4;
+    cursor: wait;
+}
+
+/* ── Feedback ── */
+#re-vis-feedback {
+    padding: 8px 14px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+/* ── Badge siempre visible ── */
+.badge {
+    display: inline-block;
+    padding: 2px 6px;
+    border-radius: 10px;
+    font-size: 11px;
+}
+
+/* ── Mismatch tipo/subtipo ───────────────────────────────────── */
+/* Fila en list.php — necesitamos máxima especificidad para pisar .oddeven de Dolibarr */
+table.liste tbody tr.re-mismatch td,
+table.tagtable tbody tr.re-mismatch td,
+tr.oddeven.re-mismatch td,
+tr.re-mismatch td {
+    background-color: #fff0f0 !important;
+    border-top-color: #f5c2c2 !important;
+    border-bottom-color: #f5c2c2 !important;
+}
+
+tr.re-mismatch td:first-child,
+tr.oddeven.re-mismatch td:first-child {
+    border-left: 3px solid #c0392b !important;
+}
+
+/* Celda de subtipo en list.php */
+tr.re-mismatch td.re-subtipo-td {
+    color: #c0392b !important;
+    font-weight: 600;
+}
+
+/* Filas en card.php (view y edit) */
+tr.re-mismatch > td:first-child {
+    border-left: 3px solid #c0392b !important;
+}
+tr.re-mismatch > td {
+    background-color: #fff0f0 !important;
+}
+
+/* Select erróneo en card.php edit */
+tr.re-mismatch select {
+    border-color: #c0392b !important;
+    box-shadow: 0 0 0 1px #c0392b;
+}
+
+/* Modales ocultos por defecto — clase para garantizar display:none */
+.re-modal-hidden {
+    display: none !important;
+}
+
+/* ── Variables de color semántico del CRM ───────────────────── */
+/* Definir aquí — usar como var(--re-rojo) o como clases .re-color-* */
+:root {
+    --re-rojo:         #c0392b;   /* Alta prioridad, urgente, error */
+    --re-naranja:      #fd7e14;   /* Media prioridad, tibio */
+    --re-verde:        #198754;   /* OK, precio venta, interesado en vender */
+    --re-violeta:      #6f42c1;   /* Tasación, en ficha */
+    --re-azul:         #0d6efd;   /* Links, captación */
+    --re-morado:       #6c6aa8;   /* Brand CRM, modales */
+    --re-gris:         #6c757d;   /* Baja prioridad, neutro */
+    --re-gris-claro:   #adb5bd;   /* No atendió */
+}
+
+/* ── Badges de prioridad ─────────────────────────────────────── */
+.re-badge {
+    display: inline-block;
+    padding: 1px 8px;
+    border-radius: 10px;
+    font-size: .8em;
+    color: #fff;
+    white-space: nowrap;
+}
+.re-badge-alta   { background: var(--re-rojo); }
+.re-badge-media  { background: var(--re-naranja); }
+.re-badge-baja   { background: var(--re-gris); }
+.re-badge-tasado { background: var(--re-violeta); }
+.re-badge-venta  { background: var(--re-verde); }
+
+/* ── Colores de texto semántico ──────────────────────────────── */
+.re-color-rojo    { color: var(--re-rojo); }
+.re-color-naranja { color: var(--re-naranja); }
+.re-color-verde   { color: var(--re-verde); }
+.re-color-violeta { color: var(--re-violeta); }
+.re-color-azul    { color: var(--re-azul); }
+.re-color-morado  { color: var(--re-morado); }
+.re-color-gris    { color: var(--re-gris); }
+
+/* ── Nota truncada con tooltip ───────────────────────────────── */
+.re-nota-tip {
+    cursor: help;
+    border-bottom: 1px dotted #aaa;
+}
+
+/* ── Cocheras estimadas ──────────────────────────────────────── */
+.re-coch-estimada {
+    color: #6ea8d4;
+    font-style: italic;
+}
+
+/* ── Paginación CRM ──────────────────────────────────────────── */
+.re-pag {
+    margin-top: 12px;
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.re-pag-current {
+    padding: 2px 8px;
+    border-radius: 4px;
+    background: var(--re-morado);
+    color: #fff;
+    font-weight: bold;
+}
+.re-pag-link {
+    margin: 0 2px;
+    color: #555;
+    text-decoration: none;
+}
+
+/* ── Fila con en_ficha ───────────────────────────────────────── */
+.re-row-enficha {
+    background: rgba(25, 135, 84, .07);
+}
+
+/* ── Estado del propietario — celda compacta ─────────────────── */
+.re-estado-prop {
+    font-size: .8em;
+    white-space: nowrap;
+}
+
+/* ── Columna USD / ratios ────────────────────────────────────── */
+.re-precio-venta  { color: var(--re-verde);   font-weight: 600; }
+.re-precio-tasac  { color: var(--re-violeta); font-weight: 600; }
+.re-precio-ratio  { color: #888; font-size: .85em; }
+.re-tipo-badge {
+    background: #e2d9f3;
+    color: var(--re-violeta);
+    border-radius: 4px;
+    padding: 0 4px;
+    font-size: .8em;
+    margin-left: 2px;
+}
+
+/* ── Modal overlay genérico ──────────────────────────────────── */
+.re-modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,.45);
+    z-index: 9999;
+    overflow-y: auto;
+}
+.re-modal-box {
+    background: #fff;
+    max-width: 540px;
+    margin: 60px auto;
+    border-radius: 6px;
+    padding: 26px 30px;
+    position: relative;
+    box-shadow: 0 8px 32px rgba(0,0,0,.25);
+}
+.re-modal-close {
+    position: absolute;
+    top: 12px; right: 16px;
+    background: none;
+    border: none;
+    font-size: 1.3em;
+    cursor: pointer;
+}
+
+/* ── Resumen de prioridades (barra sobre la tabla) ───────────── */
+.re-prio-summary {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 8px;
+    font-size: .85em;
+}
+.re-prio-summary .label { color: #888; }

@@ -1,0 +1,25 @@
+# ==============================================================
+# Traducciones: RealEstateCrmFields
+# Idioma: es_ES
+# ==============================================================
+
+SubtipoTercero=Subtipo
+Seleccionar=Seleccionar
+FiltrarPorTipo=Filtrar por tipo
+VisibilidadDeCampos=Visibilidad de Campos
+VisibilidadCamposPorTipoSubtipo=Visibilidad de Campos Personalizados por Tipo/Subtipo
+MarcarCamposVisibles=Marcar los campos que deben ser visibles para cada subtipo
+ConfiguracionCRMInmobiliario=Configuración CRM Inmobiliario
+ConfiguracionGeneral=Configuración General
+TipoTerceroPorDefecto=Tipo de tercero por defecto
+SetupSaved=Configuración guardada
+General=General
+EstadoTablas=Tabla
+Registros=Registros
+NoExtrafieldsFound=No se encontraron campos personalizados para terceros. Cree algunos en Configuración → Atributos personalizados.
+InstruccionesVisibilidad=Marque los casilleros para indicar en qué tipo/subtipo debe ser visible cada campo personalizado. Un campo sin ninguna marca es siempre visible. Un campo con al menos una marca solo aparece donde está marcado.
+CampoSinReglasVisibleSiempre=Un campo sin ninguna marca es siempre visible para todos los terceros.
+Campo=Campo
+Ninguno=Ninguno
+Guardar=Guardar
+BackToModuleList=Volver a la lista de módulos
