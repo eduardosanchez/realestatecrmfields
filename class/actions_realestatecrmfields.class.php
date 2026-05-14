@@ -74,32 +74,7 @@ class Actions_realestatecrmfields
         }
 
 
-        // ── Botón Ficha A5 PDF ── solo activos en modo vista ──
-        if ($currentType === 'RE_ACT' && $socid && $action !== 'edit' && $action !== 'create') {
-            $token_ficha = isset($_SESSION['newtoken']) ? $_SESSION['newtoken'] : (isset($_SESSION['token']) ? $_SESSION['token'] : '');
-            $ficha_html  = '<a href="#" class="butAction re-ficha-btn"
-                data-socid="' . $socid . '"
-                data-token="' . dol_escape_htmltag($token_ficha) . '"
-                style="background:#e67e22;border-color:#e67e22;color:#fff">'
-                . '<span class="fas fa-file-pdf" style="margin-right:5px"></span>Ficha A5 PDF</a>'
-                . '<span id="re-ficha-status" style="font-size:.85em;color:#888;margin-left:8px"></span>'
-                . '<script>'
-                . 'jQuery(document).on("click",".re-ficha-btn",function(e){'
-                . 'e.preventDefault();'
-                . 'var $b=jQuery(this),$s=jQuery("#re-ficha-status");'
-                . '$b.css("opacity",.6).text("⏳ Generando…");$s.text("");'
-                . 'jQuery.post("/custom/realestatecrmfields/ajax/generate_ficha_pdf.php",'
-                . '{socid:$b.data("socid"),token:$b.data("token")},'
-                . 'function(r){'
-                . '$b.css("opacity",1).html("<span class='fas fa-file-pdf' style='margin-right:5px'><\/span>Ficha A5 PDF");'
-                . 'if(r.success){window.open(r.pdf_url,"_blank");$s.html("<span style='color:#198754'>✓ PDF generado<\/span>");}'
-                . 'else{$s.html("<span style='color:#c0392b'>Error: "+(r.error||"?"+")<\/span>");}'
-                . '},"json").fail(function(){'
-                . '$b.css("opacity",1).html("<span class='fas fa-file-pdf' style='margin-right:5px'><\/span>Ficha A5 PDF");'
-                . '$s.html("<span style='color:#c0392b'>Error de conexión<\/span>");});});'
-                . '<\/script>';
-            $this->_setOutput($ficha_html);
-        }
+
 
         ob_start();
         ?>
@@ -154,7 +129,7 @@ class Actions_realestatecrmfields
             var hiddenFields = <?= $hiddenFieldsJson ?>;
             hiddenFields.forEach(function(fieldName) {
                 // Dolibarr 23 — usar setProperty con important
-                document.querySelectorAll('[id^"extrarow-societe_' + fieldName + '"]').forEach(function(el) {
+                document.querySelectorAll('[id^="extrarow-societe_' + fieldName + '"]').forEach(function(el) {
                     el.style.setProperty('display', 'none', 'important');
                 });
                 // Dolibarr < 23
@@ -202,46 +177,56 @@ class Actions_realestatecrmfields
         $resTipo = $this->db->query($sqlTipo);
         $oTipo   = $resTipo ? $this->db->fetch_object($resTipo) : null;
         $esActivo = ($oTipo && $oTipo->code === 'RE_ACT');
-        ?>
 
-        <?php if ($esActivo && $socid): ?>
+        // ── Botón Ficha A5 PDF ── solo activos en modo vista ──
+        if ($esActivo && $socid && $action !== 'edit' && $action !== 'create'):
+            $token_ficha = isset($_SESSION['newtoken']) ? $_SESSION['newtoken'] : (isset($_SESSION['token']) ? $_SESSION['token'] : '');
+        ?>
         <div style="margin-top:12px">
             <a href="#" class="butAction re-ficha-btn"
                data-socid="<?= $socid ?>"
+               data-token="<?= dol_escape_htmltag($token_ficha) ?>"
                style="background:#e67e22;border-color:#e67e22;color:#fff">
                 <span class="fas fa-file-pdf" style="margin-right:5px"></span>Ficha A5 PDF
             </a>
             <span id="re-ficha-status" style="font-size:.85em;color:#888;margin-left:8px"></span>
         </div>
         <script>
-        jQuery(document).on('click', '.re-ficha-btn', function(e) {
-            e.preventDefault();
-            var socid = jQuery(this).data('socid');
-            var $btn  = jQuery(this);
-            var $st   = jQuery('#re-ficha-status');
-            $btn.css('opacity',.6).text('⏳ Generando…');
-            $st.text('');
-            jQuery.post(
-                '/custom/realestatecrmfields/ajax/generate_ficha_pdf.php',
-                { socid: socid, token: '<?= dol_escape_js(isset($_SESSION["newtoken"]) ? $_SESSION["newtoken"] : (isset($_SESSION["token"]) ? $_SESSION["token"] : "")) ?>' },
-                function(r) {
-                    $btn.css('opacity',1).html('<span class="fas fa-file-pdf" style="margin-right:5px"></span>Ficha A5 PDF');
-                    if (r.success) {
-                        window.open(r.pdf_url, '_blank');
-                        $st.html('<span style="color:#198754">✓ PDF generado</span>');
+        jQuery(document).ready(function($) {
+            $(document).on('click', '.re-ficha-btn', function(e) {
+                e.preventDefault();
+                var $btn = $(this);
+                var $status = $('#re-ficha-status');
+                var socid = $btn.data('socid');
+                var token = $btn.data('token');
+                
+                $btn.css('opacity', 0.6).text('⏳ Generando…');
+                $status.text('');
+                
+                $.post('/custom/realestatecrmfields/ajax/generate_ficha_pdf.php', {
+                    socid: socid,
+                    token: token
+                }, function(response) {
+                    $btn.css('opacity', 1).html('<span class="fas fa-file-pdf" style="margin-right:5px"></span>Ficha A5 PDF');
+                    
+                    if (response.success) {
+                        window.open(response.pdf_url, '_blank');
+                        $status.html('<span style="color:#198754">✓ PDF generado</span>');
                     } else {
-                        $st.html('<span style="color:#c0392b">Error: ' + (r.error || '?') + '</span>');
+                        $status.html('<span style="color:#c0392b">Error: ' + (response.error || 'Desconocido') + '</span>');
                     }
-                }, 'json'
-            ).fail(function() {
-                $btn.css('opacity',1).html('<span class="fas fa-file-pdf" style="margin-right:5px"></span>Ficha A5 PDF');
-                $st.html('<span style="color:#c0392b">Error de conexión</span>');
+                }, 'json').fail(function(xhr, status, error) {
+                    $btn.css('opacity', 1).html('<span class="fas fa-file-pdf" style="margin-right:5px"></span>Ficha A5 PDF');
+                    $status.html('<span style="color:#c0392b">Error de conexión: ' + error + '</span>');
+                });
             });
         });
         </script>
         <?php endif; ?>
 
-        $html_out = ob_get_clean(); $this->_setOutput($html_out);
+        <?php
+        $html_out = ob_get_clean(); 
+        $this->_setOutput($html_out);
         return 0; // 0 = agregar al output nativo sin reemplazar botones
     }
     public function doActions($parameters, &$object, &$action, $hookmanager)
